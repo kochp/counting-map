@@ -1,4 +1,4 @@
-package com.senacor.lesson;
+package de.phienor.lesson;
 
 import junit.framework.Assert;
 import org.junit.Test;
@@ -16,19 +16,20 @@ import java.util.Map;
  * $Date: $ 
  * $Author: $ 
  */
-public class CountingMapTest {
+public class CountingHashMapTest {
+
     @Test
     public void shouldCountSinglePut(){
-        CountingMap countingMap = new CountingMap();
+        CountingHashMap countingMap = new CountingHashMap();
         countingMap.put("test1","Test1");
         countingMap.put("test2","Test2");
         countingMap.put("test3","Test3");
         countingMap.put("test4","Test4");
-        Assert.assertEquals(4, countingMap.getCounter());
+        Assert.assertEquals(4,countingMap.getCounter());
     }
     @Test
     public void shouldCountMultiplePut(){
-        CountingMap countingMap = new CountingMap();
+        CountingHashMap countingMap = new CountingHashMap();
         Map input = new HashMap();
         input.put("test1","Test1");
         input.put("test2","Test2");
@@ -36,4 +37,5 @@ public class CountingMapTest {
         countingMap.putAll(input);
         Assert.assertEquals(3,countingMap.getCounter());
     }
+
 }

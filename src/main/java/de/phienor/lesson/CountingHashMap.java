@@ -1,4 +1,4 @@
-package com.senacor.lesson;
+package de.phienor.lesson;
 
 import java.lang.Object;
 import java.lang.Override;

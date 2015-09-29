@@ -1,4 +1,4 @@
-package com.senacor.lesson;
+package de.phienor.lesson;
 
 import java.util.Collection;
 import java.util.HashMap;
