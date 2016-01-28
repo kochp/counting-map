@@ -11,18 +11,18 @@ import java.util.Set;
  * @version $Rev$, $Date$<br>
  *          $Id: $
  */
-public class CountingMap implements Map{
+public class CountingMap<K,V> implements Map<K,V>{
 
-    private Map internalMap = new HashMap();
+    private Map<K,V> internalMap = new HashMap<K,V>();
 
     private int counter=0;
 
-    public Object put(Object key, Object value) {
+    public V put(K key, V value) {
         counter++;
         return internalMap.put(key, value);
     }
 
-    public void putAll(Map m) {
+    public void putAll(Map<? extends K, ? extends V> m) {
         counter+=m.size();
         internalMap.putAll(m);
     }
@@ -30,6 +30,10 @@ public class CountingMap implements Map{
     public int getCounter() {
         return counter;
     }
+
+
+
+    // the following methods are only wrapper method's and not from interest for this case.
 
     public int size() {
         return internalMap.size();
@@ -47,11 +51,11 @@ public class CountingMap implements Map{
         return internalMap.containsValue(value);
     }
 
-    public Object get(Object key) {
+    public V get(Object key) {
         return internalMap.get(key);
     }
 
-    public Object remove(Object key) {
+    public V remove(Object key) {
         return internalMap.remove(key);
     }
 
@@ -59,15 +63,15 @@ public class CountingMap implements Map{
         internalMap.clear();
     }
 
-    public Set keySet() {
+    public Set<K> keySet() {
         return internalMap.keySet();
     }
 
-    public Collection values() {
+    public Collection<V> values() {
         return internalMap.values();
     }
 
-    public Set<Entry> entrySet() {
+    public Set<Map.Entry<K, V>> entrySet() {
         return internalMap.entrySet();
     }
 }
